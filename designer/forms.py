@@ -1,9 +1,13 @@
 from django import forms
 
 class DesignerMainForm(forms.Form):
-    columns = 12
-    rows = 8
-    foo = 'bar'
-    text = forms.CharField(label='fobar', max_length=30)
-    grid = [forms.CharField(max_length=1) for i in range(rows*columns)]
-    grid2 = [[forms.CharField(max_length=1) for i in range(12)] for j in range(rows)]
+    columns = forms.IntegerField() 
+    rows = forms.IntegerField()
+
+
+class DesignerGridForm(forms.Form):
+    rows = 7
+    columns = 10
+    grid2 = []
+    for i in range(rows):
+        grid2.append([forms.CharField(max_length=1) for i in range(columns)])
