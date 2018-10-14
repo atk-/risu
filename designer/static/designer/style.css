@@ -1,0 +1,66 @@
+$item-width: 40px;
+$item-height: 40px;
+$column-count: 4;
+$row-count: 3;
+$fgcolor: orange;
+
+:root {
+    --z: 24px;
+    --bgcolor: cyan;
+}
+
+h1 {
+    text-decoration: overline underline;
+}
+
+h3 b {
+    color: red;
+    text-decoration: underline;
+    font-variant: small-caps;
+    font-size: 24;
+}
+
+.filled {
+    width: 32px;
+    height: 32px;
+    background: black; 
+    border: 1px solid black;
+    padding: 0;
+    margin: 0;
+    float: left;
+}
+
+.empty {
+    width: 32px;
+    height: 32px;
+    background: white;
+    border: 1px solid black;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    text-transform: uppercase;
+    float: left;
+}
+
+input:focus {
+    border: 1px solid red;
+}
+
+tr {
+    padding: 10px;
+    margin: 10px;
+}
+
+.board-container {
+    width: ($item-width * $row-count);
+    height: ($item-height * $column-count);
+}
+
+.board {
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+
+.row {
+    display: block;
+}
