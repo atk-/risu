@@ -14,6 +14,4 @@ def index(request):
 
 def designer(request):
     form = DesignerMainForm()
-    #template = loader.get_template('designer/designer.html')
-    #return HttpResponse(template.render({}, request))
-    return render(request, 'designer/designer.html', {'form': form, 'width': 34 * 12})
+    return render(request, 'designer/designer.html', {'form': form})
