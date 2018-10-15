@@ -10,22 +10,14 @@
 <p>{{ form.foo }}</p>
 <p>{{ width }} </p>
 <form>
-  <input type="button" value="button" />
+  <input type="button" value="button" onclick="showAlert('alarm')" />
   {{ form }}
-
-  <!--<div class="row" style="width:408px">-->
-    <!--{% for cell in form.grid %}-->
-      <!--<input type="text" class="empty">-->
-      <!--{% if forloop.counter0|divisibleby:12 %}</div><p></p><div class="row">{% endif %}-->
-      <!--</input>-->
-    <!--{% endfor %}-->
-  <!--</div>-->
 
   <div class="wrapper" style="width: {{width}}px;">
     {% for row in form.grid2 %}
       <div class="row">
         {% for col in row %}
-        <input type="text" maxlength="1" class="empty" />
+          <input type="text" maxlength="1" class="cword-cell empty" />
         {% endfor %}
       </div>
     {% endfor %}

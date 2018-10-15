@@ -20,17 +20,7 @@ h3 b {
     font-size: 24;
 }
 
-.filled {
-    width: 32px;
-    height: 32px;
-    background: black; 
-    border: 1px solid black;
-    padding: 0;
-    margin: 0;
-    float: left;
-}
-
-.empty {
+.cword-cell {
     width: 32px;
     height: 32px;
     background: white;
@@ -42,8 +32,17 @@ h3 b {
     float: left;
 }
 
+.filled {
+    background: black; 
+    border: 1px solid black;
+}
+
 input:focus {
-    border: 1px solid red;
+    background-color: #e0e0e0;
+}
+
+.has-content {
+    border: 2px solid green;
 }
 
 tr {
