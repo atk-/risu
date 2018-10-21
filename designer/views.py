@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
-from .forms import DesignerMainForm
+from .forms import DesignerMainForm, DesignerGridForm
 
 def _index(request):
     return HttpResponse('''<h1>ooh, welcome, you astonishing sod ape</h1>
@@ -13,5 +13,5 @@ def index(request):
 
 
 def designer(request):
-    form = DesignerMainForm()
+    form = DesignerGridForm()
     return render(request, 'designer/designer.html', {'form': form})
