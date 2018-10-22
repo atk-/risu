@@ -12,16 +12,16 @@
 <p>{{ width }} </p>
 <form>
   {{ form }}
-  <input type="submit" value="submit">
+  <!--<input type="submit" value="submit">-->
 
-  <div class="wrapper" style="width: {{width}}px;">
+  <div class="wrapper" id="wordgrid" style="width: {{width}}px;">
     <table>
     {% for row in form.grid %}
       <tr>
       <div class="row">
         {% for col in row %}
           <td>
-            <input type="text" maxlength="1" class="cword-cell empty" id="{{forloop.counter}}-{{forloop.parentloop.counter}}" />
+            <input type="text" tabindex="-1" maxlength="1" class="cword-cell empty" id="{{forloop.counter}}-{{forloop.parentloop.counter}}" />
           </td>
         {% endfor %}
       </div>

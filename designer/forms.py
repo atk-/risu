@@ -1,7 +1,7 @@
 from django import forms
 
-ACROSS = (1, 0)
-DOWN = (0, 1)
+ACROSS = 0
+DOWN = 1
 
 
 class DesignerMainForm(forms.Form):
@@ -13,7 +13,7 @@ class DesignerGridForm(forms.Form):
     rows = 7
     columns = 10
 
-    direction = ACROSS
+    direction = forms.ChoiceField(choices=[['0', 'Across'], ['1', 'Down']])
 
     grid = []
     for i in range(rows):
