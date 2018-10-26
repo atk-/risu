@@ -31,14 +31,20 @@ $.moveToPrevious = function () {
   }
 }
 
+$.selectCell = function (x, y) {
+  var coord = "" + x + "-" + y;
+  $('input#' + coord).focus();
+}
+
 var keyhandler = function(event) {
   var key = event.which;
   console.log('wrapper caught key ' + event.which);
   var focused = $('input:focus');
   switch (event.which) {
     case 8:     // BACKSPACE
-      console.log('focused ', focused.attr('id'));
       focused.val('');
+      focused.removeClass('filled');
+      focused.removeClass('has-content');
       $.moveToPrevious();
       break;
     case 9:     // TAB -- change input direction
@@ -53,6 +59,7 @@ var keyhandler = function(event) {
       break;
     case 36:    // HOME
       // TODO go to beginning of column/row depending on direction
+      $.selectCell(1, 1);
       break;
     case 37:    // LEFT
       move(focused, -1, 0);
@@ -66,6 +73,11 @@ var keyhandler = function(event) {
     case 40:    // DOWN
       move(focused, 0, 1);
       break;
+    case 46:    // DELETE
+      focused.val('');
+      focused.removeClass('filled');
+      focused.removeClass('has-content');
+
   }
 }
 
@@ -75,30 +87,15 @@ $(document).ready(function () {
   $('.cword-cell').on('input', function(data) {
     if (data.currentTarget.value == "") { 
       $(this).removeClass('has-content');
-      console.log('empty');
     } else if (data.currentTarget.value == " ") {
       $(this).addClass('filled');
-      console.log('space');
       $.moveToNext();
     } else {
       $(this).addClass('has-content');
       $(this).removeClass('filled');
-      console.log('content');
       $.moveToNext();
     }
-
-    if ( false ) {  //if (data.currentTarget.value != "") {
-      console.log('motion');
-      var coords = $(this).attr('id').split('-');
-      
-      var newX = parseInt(coords[0]) + (data.which == 8 ? -1 : 1);
-      var newY = parseInt(coords[1]);
-      console.log(coords + " " + newX + " " + newY);
-      $('input#' + newX + "-" + newY).focus();
-    }
   })
-
-
 });
 
 function showAlert(msg) {
