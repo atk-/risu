@@ -10,9 +10,9 @@
 <h4>foobar</h4>
 <p>{{ form.foo }}</p>
 <p>{{ width }} </p>
-<form>
+<form action="{% url 'designer' %}" method="POST">
+  {% csrf_token %}
   {{ form }}
-  <!--<input type="submit" value="submit">-->
 
   <div class="wrapper" id="wordgrid" style="width: {{width}}px;">
     <table>
@@ -29,5 +29,6 @@
     {% endfor %}
     </table>
   </div>
+  <input type="submit" value="submit">
 </form>
 

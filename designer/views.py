@@ -1,5 +1,5 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.shortcuts import render, render_to_response
+from django.http import HttpResponse, JsonResponse
 from django.template import loader
 from .forms import DesignerMainForm, DesignerGridForm
 
@@ -15,3 +15,8 @@ def index(request):
 def designer(request):
     form = DesignerGridForm()
     return render(request, 'designer/designer.html', {'form': form})
+
+
+def collect_words(request):
+    print('>', request.body, dir(request.body))
+    return JsonResponse({'foo': 'bar',})
