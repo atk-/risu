@@ -129,7 +129,7 @@ var keyhandler = function(event) {
 }
 
 $(document).ready(function () {
-  $('div#wordgrid').keydown(keyhandler);
+  $('form#wordgrid').keydown(keyhandler);
 
   $('.cword-cell').on('input', function(data) {
     if (data.currentTarget.value == "") { 

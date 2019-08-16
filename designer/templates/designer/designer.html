@@ -9,26 +9,21 @@
 
 <h4>foobar</h4>
 <p>{{ form.foo }}</p>
-<p>{{ width }} </p>
-<form action="{% url 'designer' %}" method="POST">
+<p>{{ form.rows }} </p>
+<form novalidate class="wordgrid" action="{% url 'designer' %}" method="POST">
   {% csrf_token %}
   {{ form }}
-
-  <div class="wrapper" id="wordgrid" style="width: {{width}}px;">
-    <table>
-    {% for row in form.grid %}
+  <table>
       <tr>
-      <div class="row">
-        {% for col in row %}
-          <td>
-            <input type="text" tabindex="-1" maxlength="1" class="cword-cell empty" id="{{forloop.counter}}-{{forloop.parentloop.counter}}" />
-          </td>
-        {% endfor %}
-      </div>
-      </tr>
-    {% endfor %}
-    </table>
-  </div>
+  {% for field in form %}
+  {% if forloop.counter0|divisibleby:form.columns %}
+    </tr><tr>
+  {% endif %}
+  <td>{{field}}</td>
+  {% endfor %}
+    </tr>
+  </table>
+
   <input type="submit" value="submit">
 </form>
 
